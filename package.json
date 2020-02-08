@@ -5,9 +5,14 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest",
+    "test:pact": "cross-env CI=true jest test --runInBand --setupFiles ./pact/setup.js --setupFilesAfterEnv ./pact/jest-wrapper.js --testMatch \"**/*.test.pact.js\""
   },
   "dependencies": {
+    "@pact-foundation/pact": "^9.6.1",
+    "@pact-foundation/pact-node": "^10.2.4",
+    "cross-env": "^7.0.0",
     "expo": "~36.0.0",
     "expo-font": "~8.0.0",
     "native-base": "^2.13.8",
@@ -18,7 +23,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
-    "babel-preset-expo": "~8.0.0"
+    "babel-preset-expo": "~8.0.0",
+    "jest-expo": "^36.0.1"
   },
-  "private": true
+  "private": true,
+  "jest": {
+    "preset": "jest-expo"
+  }
 }
