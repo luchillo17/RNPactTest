@@ -1,10 +1,10 @@
-import { Body, Header, Text, Title, Button } from 'native-base';
+import { Button, Text } from 'native-base';
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import uuid from 'uuid/v1';
 
+import { addTodo } from '../store/todos/todos.actions';
 import { Todo } from './todo/todo';
-import { addTodo } from '../store/todos.actions';
 
 export function TodosPage() {
   const todos = useSelector(({ todos: { todoIds, todos } }) =>
